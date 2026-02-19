@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: project-k8s
-        image: tampoohoonm/project-k8s:latest
+        image: docker.io/silvius444/addressbook:latest
         ports:
         - containerPort: 8080  
 
@@ -22,6 +22,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    oci.oraclecloud.com/load-balancer-type: "lb"
   name: project-k8s-service
 spec:
   type: LoadBalancer
